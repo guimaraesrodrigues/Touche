@@ -2,6 +2,7 @@ package com.tacttiles.touche;
 
 import android.os.Bundle;
 
+import com.tacttiles.api.Device;
 import com.tacttiles.api.Glove;
 import com.tacttiles.touche.chat.ChatActivity;
 
@@ -44,6 +45,21 @@ public class ToucheMainActivity extends ChatActivity {
             @Override
             public void onButtonPressed(int time) {
                 inputEnabled = !inputEnabled;
+                if (inputEnabled){
+                    glove.getDevice().vibrateDevice(1,100);
+                } else {
+                    glove.getDevice().vibrateDevice(3,50);
+                }
+            }
+
+            @Override
+            public void onDeviceFound() {
+                enableSendButton(true);
+            }
+
+            @Override
+            public void onDeviceLost() {
+                enableSendButton(false);
             }
         });
 
@@ -51,12 +67,18 @@ public class ToucheMainActivity extends ChatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        //FIXME:
+        glove.getDevice().powerOff();
         glove.getDevice().getServiceConnection().disconnect();
+        super.onDestroy();
     }
 
     @Override
     public void onSendMessage(String msg) {
+        if (msg.toLowerCase().equals("po")){
+            glove.getDevice().powerOff();
+            return;
+        }
         //TODO send multiple messages
         glove.draw(msg.toLowerCase()).start();
     }

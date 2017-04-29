@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tacttiles.touche.R;
 
@@ -67,15 +68,15 @@ public abstract class ChatActivity extends AppCompatActivity {
             this.message = message;
         }
 
-        public void setText (TextView tv){
-            if (in){
-                if (state == STATE_DEFAULT){
+        public void setText(TextView tv) {
+            if (in) {
+                if (state == STATE_DEFAULT) {
                     tv.setText(ANIM[aID]);
                 } else {
                     tv.setText(message);
                 }
             } else {
-                if (state == STATE_INFO){
+                if (state == STATE_INFO) {
                     Spannable span = new SpannableString(message);
                     if (progress > 0) {
                         span.setSpan(new ForegroundColorSpan(Color.BLACK), 0, progress - 1, 0);
@@ -104,7 +105,7 @@ public abstract class ChatActivity extends AppCompatActivity {
             this.data = data;
         }
 
-        public void addMessage(ChatMessage msg){
+        public void addMessage(ChatMessage msg) {
             data.add(msg);
             notifyUpdate();
         }
@@ -180,12 +181,10 @@ public abstract class ChatActivity extends AppCompatActivity {
     private ListView listView;
     private Button buttonSend;
     private int aID = 0;
+    private boolean sendButtonEnabled = false;
 
     private ChatMessage currentInMessage;
     private ChatMessage currentOutMessage;
-
-    Intent intent;
-    private boolean side = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -243,7 +242,7 @@ public abstract class ChatActivity extends AppCompatActivity {
             public void run() {
                 while (true) {
                     aID = aID == 3 ? 0 : aID + 1;
-                    if (currentInMessage != null && currentInMessage.state == ChatMessage.STATE_DEFAULT){
+                    if (currentInMessage != null && currentInMessage.state == ChatMessage.STATE_DEFAULT) {
                         arrayAdapter.notifyUpdate();
                     }
                     try {
@@ -261,7 +260,30 @@ public abstract class ChatActivity extends AppCompatActivity {
         //addMessage(false, "Eu vou bem. Ontem eu fui na casa de um amigo que fazia muito tempo que eu nao o via!");
     }
 
-    private void newOutMessage(String msg){
+    public void enableSendButton(boolean value) {
+        sendButtonEnabled = value;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (sendButtonEnabled) {
+                    Toast.makeText(getApplicationContext(), "Glove Connected!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Glove Not Found", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void sendButtonPressed(EditText editText) {
+        if (sendButtonEnabled) {
+            newOutMessage(editText.getText().toString());
+            editText.setText("");
+        } else {
+            enableSendButton(false);
+        }
+    }
+
+    private void newOutMessage(String msg) {
         ChatMessage chatMessage = new ChatMessage(false, msg);
         currentOutMessage = chatMessage;
         arrayAdapter.addMessage(chatMessage);
@@ -275,7 +297,7 @@ public abstract class ChatActivity extends AppCompatActivity {
     }
 
     public void setCurrentOutMessageProgress(int index) {
-        if (currentOutMessage != null){
+        if (currentOutMessage != null) {
             currentOutMessage.progress = index;
             arrayAdapter.notifyUpdate();
         }
@@ -293,7 +315,7 @@ public abstract class ChatActivity extends AppCompatActivity {
     }
 
     public void flushCurrentInMessage() {
-        if (currentInMessage != null){
+        if (currentInMessage != null) {
             currentInMessage.state = ChatMessage.STATE_DONE;
             currentInMessage = null;
             arrayAdapter.notifyUpdate();
