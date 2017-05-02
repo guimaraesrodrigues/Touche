@@ -83,7 +83,7 @@ public abstract class ChatActivity extends AppCompatActivity {
                     }
                     span.setSpan(new ForegroundColorSpan(Color.BLUE), progress, progress, 0);
                     if (progress + 1 < message.length()) {
-                        span.setSpan(new ForegroundColorSpan(Color.GRAY), progress + 1, message.length() - 1, 0);
+                        span.setSpan(new ForegroundColorSpan(Color.GRAY), progress + 1, message.length(), 0);
                         tv.setText(span);
                         return;
                     } else {
@@ -265,6 +265,7 @@ public abstract class ChatActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                buttonSend.setEnabled(sendButtonEnabled);
                 if (sendButtonEnabled) {
                     Toast.makeText(getApplicationContext(), "Glove Connected!", Toast.LENGTH_SHORT).show();
                 } else {
