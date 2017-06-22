@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/texturafundo"
+    android:orientation="vertical"
+    tools:context="com.tacttiles.touche.PalavrasActivity"
+    android:weightSum="1">
+
+
+    <TextView
+        android:id="@+id/textPalavras"
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.28"
+        android:gravity="center"
+        android:text="SIM"
+        android:textColor="?android:attr/colorForegroundInverse"
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <Button
+        android:id="@+id/buttonStartPalavras"
+        android:layout_width="374dp"
+        android:layout_height="86dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/black"
+        android:text="Iniciar palavras!"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+
+</LinearLayout>

@@ -1,4 +1,4 @@
 include ':app'
 
 include ':ttapi'
-project(':ttapi').projectDir = new File(settingsDir, '../Tact-TilesAPI/ttapi')
+project(':ttapi').projectDir = new File(settingsDir, '../AndroidAPI-master/ttapi')

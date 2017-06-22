@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">~Touché</string>
+    <string name="app_name">~Helena Glove</string>
+    <string name="title_activity_main2">Helena Glove</string>
+    <string name="title_activity_alfabet">Alfabeto</string>
+    <string name="title_activity_main">Chat</string>
+    <string name="title_activity_tela_inicial">Helena Glove</string>
+    <string name="title_activity_sobre">Sobre</string>
+    <string name="title_activity_palavras">Palavras</string>
+    <string name="large_text">
+        "Sobre Helena Glove\n\n"
+
+        "Inserir texto"
+
+    </string>
+    <string name="title_activity_frases">Frases</string>
 </resources>

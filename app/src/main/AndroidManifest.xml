@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tacttiles.touche">
+
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -10,13 +11,37 @@
         android:roundIcon="@mipmap/ic_touchelogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ToucheMainActivity">
+
+        <activity
+            android:name=".TelaInicialActivity"
+            android:label="@string/title_activity_tela_inicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ToucheMainActivity"
+            android:label="@string/title_activity_main" />
+
+        <activity
+            android:name=".alfabet.AlfabetActivity"
+            android:label="@string/title_activity_alfabet" />
+        <activity
+            android:name=".PalavrasActivity"
+            android:label="@string/title_activity_palavras" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main2" />
+
+        <activity
+            android:name=".SobreActivity"
+            android:label="@string/title_activity_sobre" />
+        <activity
+            android:name=".FrasesActivity"
+            android:label="@string/title_activity_frases"></activity>
     </application>
 
 </manifest>

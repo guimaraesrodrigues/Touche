@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Touche.iml" filepath="$PROJECT_DIR$/Touche.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Touche-master.iml" filepath="$PROJECT_DIR$/Touche-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../AndroidAPI-master/ttapi/ttapi.iml" filepath="$PROJECT_DIR$/../AndroidAPI-master/ttapi/ttapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Tact-TilesAPI/ttapi/ttapi.iml" filepath="$PROJECT_DIR$/../Tact-TilesAPI/ttapi/ttapi.iml" />
     </modules>
   </component>

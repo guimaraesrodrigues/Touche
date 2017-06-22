@@ -6,7 +6,11 @@
 .DS_Store
 /build
 /captures
-.externalNativeBuild
+/.externalNativeBuild
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/settings.gradle
 
 # Built application files
 *.apk

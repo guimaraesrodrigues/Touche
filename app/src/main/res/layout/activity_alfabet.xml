@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tacttiles.touche.alfabet.AlfabetActivity"
+    android:orientation="vertical"
+    android:background="@drawable/texturafundo">
+
+    <TextView
+        android:id="@+id/textAlfabet"
+        android:layout_width="304dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="@android:color/background_dark"
+        android:textSize="200sp"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <Button
+        android:id="@+id/buttonStartAlfabet"
+        android:layout_width="374dp"
+        android:layout_height="86dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/background_dark"
+        android:text="Iniciar alfabeto!"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+
+</LinearLayout>
