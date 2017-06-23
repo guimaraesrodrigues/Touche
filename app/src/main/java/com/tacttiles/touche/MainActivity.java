@@ -6,13 +6,17 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
 
+
+import com.tacttiles.api.Glove;
 import com.tacttiles.touche.alfabet.AlfabetActivity;
 
 public class MainActivity extends Activity {
-
+    Glove glove;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        glove = new Glove();
+        glove.connect(getApplicationContext());
         setContentView(R.layout.activity_main2);
     }
 
